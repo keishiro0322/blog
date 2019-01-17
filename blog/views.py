@@ -6,11 +6,11 @@ from .models import Post, Category, Comment
 
 
 class IndexView(generic.ListView):
-    model = Post
+    model = Post #post_list.htmlにpost_listとして渡される
     paginate_by = 10
 
     def get_queryset(self):
-        queryset = Post.objects.order_by('-created_at')# -createdで新しい記事から表示
+        queryset = Post.objects.order_by('-created_at')# order_byメソッド　-created（フィールド名）で新しい記事から表示
         keyword = self.request.GET.get('keyword')
         if keyword:
             queryset = queryset.filter(

@@ -7,7 +7,7 @@ class Category(models.Model):
     name = models.CharField('カテゴリ名', max_length=255)
     created_at = models.DateTimeField('作成日', default=timezone.now)
     
-    def __str__(self):
+    def __str__(self): #adminサイトに文字列でカテゴリ名を表示させる
         return self.name
     
 
@@ -18,6 +18,7 @@ class Post(models.Model):
     
     title = models.CharField('タイトル', max_length=255)
     text = models.TextField('本文')
+    image = models.ImageField(upload_to='images/', blank=True)
     created_at = models.DateTimeField('作成日', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
     

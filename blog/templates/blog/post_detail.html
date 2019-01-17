@@ -5,16 +5,20 @@
   <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
   <div class="card-body">
    <p>{{ post.created_at }}, {{ post.category }}</p>
-    {{ post.text | linebreaksbr | urlize }}
+    <p><img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 /></p>
+    <p>{{ post.text | linebreaksbr | urlize }}</p>
   </div>
  </div>
  
 {% for comment in post.comment_set.all %}
-  <p>
-   {{ comment.name }}<br>
-   {{ comment.text | linebreaksbr }}
-  </p>
+  <div class="card ">
+   <h4 class="card-header bg-dark text-white">コメント投稿者：{{ comment.name }}</h4>
+      <div class="card-body">
+          <p>{{ comment.created_at }}</p>
+          <p>{{ comment.text | linebreaksbr }}</p>
+      </div>
+  </div>
 {% endfor %}
 
- <a class="btn btn-dark" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>
+ <a class="btn btn-dark mb-3" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>
 {% endblock %}

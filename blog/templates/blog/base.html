@@ -12,17 +12,17 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">KeiBlog</a>
+{#      <a class="navbar-brand" href="#">KeiBlog</a>#}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'blog:index' %}">Home</a>
           </li>
-          {% if user.is_superuser %}
+          {% if user.is_superuser %} <!--管理者でないとAdminサイトが表示されないようにする -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
           </li>
@@ -34,10 +34,10 @@
         </form>
       </div>
     </nav>
-    
+
     <div class="jumbotron">
       <h1 class="display-3">KeiBlog</h1>
-      <p class="lead">プログラミングに関するブログです</p>
+      <p class="lead">プログラミングに関してのブログです。!</p>
       <hr class="my-2">
     </div>
 
@@ -58,7 +58,7 @@
      </div>
     </div>
    </div>
-   
+
    <footer class="bg-dark text-white text-center py-3">
     <p>KEI</p>
    </footer>
