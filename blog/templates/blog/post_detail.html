@@ -4,8 +4,12 @@
 <div class="card mb-3">
   <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
   <div class="card-body">
+{% if post.image %}
+  <img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 />
+{% else %}
+  <p>"画像無し"</p>
+{% endif %}
    <p>{{ post.created_at }}, {{ post.category }}</p>
-    <p><img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 /></p>
     <p>{{ post.text | linebreaksbr | urlize }}</p>
   </div>
  </div>
