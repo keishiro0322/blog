@@ -24,7 +24,7 @@ SECRET_KEY = '1n-v2219pf1f5qt=oq696reb+=&-y9(karxm2vagp568ue!d6='
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['175.41.234.118','keishiroblog.com','www.keishiroblog.com']
 
 
 # Application definition
@@ -73,8 +73,14 @@ WSGI_APPLICATION = 'project3.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#	 'ENGINE': 'django.db.backends.sqlite3',
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'NAME': 'blog',
+        'USER': 'keishiro',
+        'PASSWORD': 'keishirobjj5210',
+        'HOST': 'localhost',
+	'PORT': '',
     }
 }
 
